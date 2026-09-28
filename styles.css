@@ -40,7 +40,8 @@
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Space Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-numbers: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Architectural Radii */
   --radius-xs: 2px;
@@ -424,9 +425,10 @@ input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-family: var(--font-numbers);
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--text-secondary);
   padding: 0.5rem 0.85rem;
   border-radius: var(--radius-sm);
@@ -654,12 +656,13 @@ input, select, textarea {
 }
 
 .hero-stat-value {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  font-weight: 600;
+  font-family: var(--font-numbers);
+  font-size: clamp(1.5rem, 2.3vw, 1.95rem);
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
   margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
 }
 
 .hero-stat-label {
@@ -1076,11 +1079,11 @@ input, select, textarea {
 }
 
 .timeline-time {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-numbers);
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.04em;
+  letter-spacing: -0.01em;
   text-align: right;
   padding-top: 1px;
 }
@@ -1335,26 +1338,30 @@ input, select, textarea {
 }
 
 .tier-price {
-  font-family: var(--font-mono);
-  font-size: clamp(1.85rem, 2.5vw, 2.35rem);
+  font-family: var(--font-numbers);
+  font-size: clamp(2.1rem, 2.8vw, 2.75rem);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
+  letter-spacing: -0.03em;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
 .tier-currency-note {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--text-muted);
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .tier-usd-approx {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-numbers);
+  font-size: 0.82rem;
   color: var(--accent-terracotta);
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .tier-desc {
@@ -1469,10 +1476,11 @@ input, select, textarea {
 }
 
 .faq-num {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-family: var(--font-numbers);
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--accent-terracotta);
+  letter-spacing: -0.02em;
 }
 
 .faq-question-text {
@@ -1711,11 +1719,12 @@ input, select, textarea {
 }
 
 .mobile-bar-rate {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-family: var(--font-numbers);
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .mobile-bar-buttons {
@@ -1940,10 +1949,11 @@ input, select, textarea {
 }
 
 .option-card-price {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-family: var(--font-numbers);
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--accent-terracotta);
+  letter-spacing: -0.01em;
 }
 
 .form-nav-actions {
