@@ -1,6 +1,7 @@
 /**
- * AKSHAR YOGA — 40-DAY BASIC LEVEL RESIDENTIAL TTC
- * Core Interactive Controller & Ad Conversion Engine
+ * AKSHAR YOGA — 40-DAY BASIC LEVEL RESIDENTIAL TTC (LANDING PAGE 3)
+ * Aesthetic: "Aman Himalayan Sanctuary" — Editorial Architectural Luxury
+ * Core Interactive Controller, Curriculum Tab Switcher, & Ad Conversion Engine
  */
 
 (function () {
@@ -17,7 +18,7 @@
       'seeker': {
         name: 'Seeker',
         price: '₹1.75 Lakh INR',
-        tagline: '40 Days Foundational Training'
+        tagline: 'Tuition Only'
       },
       'immersive': {
         name: 'Immersive',
@@ -32,7 +33,7 @@
       'basic-ttc': {
         name: 'Seeker',
         price: '₹1.75 Lakh INR',
-        tagline: '40 Days Foundational Training'
+        tagline: 'Tuition Only'
       },
       'cse-residential': {
         name: 'Immersive',
@@ -63,7 +64,6 @@
       ...eventParams
     };
     window.dataLayer.push(payload);
-    // Development console log for inspection
     console.log(`[Analytics Event: ${eventName}]`, payload);
   }
 
@@ -99,7 +99,7 @@
     }
   }
 
-  // --- Scroll Tracking (50% and 90%) ---
+  // --- Scroll Tracking & Floating Mobile Bar ---
   let trackedScroll50 = false;
   let trackedScroll90 = false;
 
@@ -119,7 +119,7 @@
         trackEvent('scroll_90', { depth: 90 });
       }
 
-      // Mobile sticky CTA visibility
+      // Mobile sticky CTA bar visibility
       const stickyBar = document.getElementById('sticky-mobile-bar');
       if (stickyBar) {
         if (window.scrollY > 380) {
@@ -128,20 +128,29 @@
           stickyBar.classList.remove('visible');
         }
       }
+
+      // Header scroll state
+      const header = document.querySelector('.site-header');
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
     }, { passive: true });
   }
 
   // --- Modal Management ---
-  // --- Modal Management ---
   function openModal(modalId) {
-    // 1. Close any currently open modals first so modals never overlap or obscure each other
+    // Close other modals first so they never overlap
     document.querySelectorAll('.modal-backdrop.open').forEach(m => {
       if (m.id !== modalId) {
         closeModal(m.id);
       }
     });
 
-    // 2. Also close mobile nav drawer if open
+    // Close mobile nav drawer if open
     const mobileNav = document.getElementById('mobile-nav-backdrop');
     if (mobileNav && mobileNav.classList.contains('open')) {
       mobileNav.classList.remove('open');
@@ -154,7 +163,7 @@
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // 3. Reset application wizard form if opening application modal
+    // Reset application wizard if opening application modal
     if (modalId === 'modal-application') {
       const step1El = document.getElementById('form-step-1');
       const step2El = document.getElementById('form-step-2');
@@ -163,7 +172,7 @@
       const submitBtn = formEl ? formEl.querySelector('button[type="submit"]') : null;
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>Send Application</span><svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
+        submitBtn.innerHTML = '<span>Submit Application</span><span class="btn-arrow">→</span>';
       }
       if (step1El) step1El.style.display = 'block';
       if (step2El) step2El.style.display = 'none';
@@ -175,7 +184,6 @@
       if (ind2) { ind2.classList.remove('active'); ind2.classList.remove('completed'); }
     }
 
-    // Focus first input or close button
     setTimeout(() => {
       const focusable = modal.querySelector('input:not([type="hidden"]), select, textarea, button');
       if (focusable) focusable.focus();
@@ -187,8 +195,7 @@
     if (!modal) return;
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
-    
-    // Check if any other modal is still open before restoring body scroll
+
     const remainingOpen = document.querySelectorAll('.modal-backdrop.open');
     if (remainingOpen.length === 0) {
       document.body.style.overflow = '';
@@ -225,7 +232,7 @@
       });
     });
 
-    // Triggers for Talk to Admissions Modal
+    // Triggers for Talk to Admissions Modal / Callback
     document.querySelectorAll('.trigger-admissions-modal').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -234,7 +241,7 @@
       });
     });
 
-    // Triggers for Curriculum Modal
+    // Triggers for Curriculum / Syllabus Modal
     document.querySelectorAll('.trigger-curriculum-modal').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -321,7 +328,6 @@
       nextBtn.addEventListener('click', () => {
         clearStepErrors();
 
-        // Validate Step 1
         const nameInput = document.getElementById('app-name');
         const emailInput = document.getElementById('app-email');
         const phoneInput = document.getElementById('app-phone');
@@ -347,14 +353,12 @@
           return;
         }
 
-        // Proceed to Step 2
         step1El.style.display = 'none';
         step2El.style.display = 'block';
-        indicator1.classList.add('completed');
-        indicator2.classList.add('active');
+        if (indicator1) indicator1.classList.add('completed');
+        if (indicator2) indicator2.classList.add('active');
         trackEvent('cta_click', { cta_name: 'application_step_1_complete' });
 
-        // Focus first control in Step 2
         const firstStep2 = step2El.querySelector('select, input, button');
         if (firstStep2) firstStep2.focus();
       });
@@ -364,8 +368,8 @@
       backBtn.addEventListener('click', () => {
         step2El.style.display = 'none';
         step1El.style.display = 'block';
-        indicator1.classList.remove('completed');
-        indicator2.classList.remove('active');
+        if (indicator1) indicator1.classList.remove('completed');
+        if (indicator2) indicator2.classList.remove('active');
       });
     }
 
@@ -390,7 +394,6 @@
         pageUrl: window.location.href
       };
 
-      // Save submission locally for reliability
       try {
         const pastSubmissions = JSON.parse(localStorage.getItem('ay_applications') || '[]');
         pastSubmissions.push(finalPayload);
@@ -399,7 +402,6 @@
         console.warn('Could not save application to localStorage', err);
       }
 
-      // Track primary conversion
       trackEvent('form_submit', {
         form_name: 'ttc_application',
         applicant_name: data.fullName,
@@ -407,7 +409,6 @@
         country: data.country
       });
 
-      // Show Success View & Auto-Redirect to WhatsApp
       showFormSuccess(data.fullName, data.preferred_option);
     });
   }
@@ -422,7 +423,6 @@
     if (successBox) successBox.style.display = 'block';
     if (successNameEl) successNameEl.innerText = applicantName || 'Namaste';
 
-    // Build personalized WhatsApp link
     const tierInfo = CONFIG.tiers[selectedTier] || CONFIG.tiers['immersive'];
     const message = encodeURIComponent(
       `Namaste Akshar Yoga Admissions, I have just submitted my application for the 40-Day Basic Residential TTC (${tierInfo.name} Tier - ${tierInfo.price}). My name is ${applicantName}. Could you please guide me on the next steps?`
@@ -432,12 +432,11 @@
       whatsappBtn.href = waUrl;
     }
 
-    // Auto-redirect notice & countdown
     let redirectNotice = document.getElementById('redirect-countdown-notice');
     if (!redirectNotice && successBox) {
       redirectNotice = document.createElement('p');
       redirectNotice.id = 'redirect-countdown-notice';
-      redirectNotice.style.cssText = 'font-size: 0.86rem; color: var(--color-taupe); margin-top: 14px; font-weight: 600; text-align: center;';
+      redirectNotice.style.cssText = 'font-size: 0.86rem; color: var(--accent-terracotta); margin-top: 14px; font-weight: 600; text-align: center;';
       successBox.appendChild(redirectNotice);
     }
 
@@ -459,7 +458,7 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  // --- Admissions Callback Form ---
+  // --- Admissions Callback & Syllabus Form ---
   function initAdmissionsForm() {
     const callbackForm = document.getElementById('admissions-callback-form');
     if (!callbackForm) return;
@@ -469,7 +468,7 @@
       const submitBtn = callbackForm.querySelector('button[type="submit"]');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerText = 'Requesting...';
+        submitBtn.innerText = 'Connecting...';
       }
 
       const formData = new FormData(callbackForm);
@@ -482,7 +481,7 @@
       });
 
       const message = encodeURIComponent(
-        `Namaste Akshar Yoga Admissions, I requested a callback regarding the 40-Day Basic Residential TTC. My name is ${data.callbackName || ''}, and my preferred time is ${data.callbackTime || 'Afternoon'}.`
+        `Namaste Akshar Yoga Admissions, I requested information / 200h syllabus regarding the 40-Day Basic Residential TTC. My name is ${data.callbackName || ''}, phone ${data.callbackPhone || ''}.`
       );
       const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${message}`;
 
@@ -493,12 +492,12 @@
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
-          <h3 class="serif">Request Received</h3>
-          <p>Thank you, <strong>${data.callbackName || ''}</strong>. Our admissions counselor will call you within your requested window.</p>
-          <a href="${waUrl}" class="btn btn-whatsapp" style="width: 100%; justify-content: center; margin-top: 14px;">
-            Chat on WhatsApp Immediately →
+          <h3 class="serif" style="font-size: 1.6rem; margin-bottom: 0.5rem;">Request Received</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">Thank you, <strong>${data.callbackName || ''}</strong>. Our admissions acharya will contact you directly.</p>
+          <a href="${waUrl}" class="btn btn-whatsapp btn-full">
+            Chat on WhatsApp Directly →
           </a>
-          <p id="callback-redirect-timer" style="font-size: 0.82rem; color: var(--color-taupe); margin-top: 12px; font-weight: 600; text-align: center;">
+          <p id="callback-redirect-timer" style="font-size: 0.82rem; color: var(--accent-terracotta); margin-top: 12px; font-weight: 600; text-align: center;">
             Redirecting to WhatsApp in 3s...
           </p>
         </div>
@@ -518,6 +517,31 @@
     });
   }
 
+  // --- Curriculum Tab Switcher (Section 3: 5 Core Pillars) ---
+  function initCurriculumTabs() {
+    const tabButtons = document.querySelectorAll('.curriculum-tab-btn');
+    const tabPanels = document.querySelectorAll('.curriculum-panel');
+
+    if (!tabButtons.length || !tabPanels.length) return;
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab');
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+
+        trackEvent('curriculum_tab_select', { tab_id: targetId, tab_name: btn.innerText.trim() });
+      });
+    });
+  }
+
   // --- Accessible FAQ Accordion ---
   function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -528,12 +552,14 @@
       button.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
 
-        // Close other items for compact scanning
+        // Close other items for refined architectural scan
         faqItems.forEach(other => {
           if (other !== item) {
             other.classList.remove('active');
             const otherBtn = other.querySelector('.faq-question-btn');
             if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            const icon = other.querySelector('.faq-toggle-icon');
+            if (icon) icon.innerText = '+';
           }
         });
 
@@ -541,9 +567,13 @@
         if (isActive) {
           item.classList.remove('active');
           button.setAttribute('aria-expanded', 'false');
+          const icon = item.querySelector('.faq-toggle-icon');
+          if (icon) icon.innerText = '+';
         } else {
           item.classList.add('active');
           button.setAttribute('aria-expanded', 'true');
+          const icon = item.querySelector('.faq-toggle-icon');
+          if (icon) icon.innerText = '−';
           trackEvent('cta_click', { cta_name: 'faq_expanded', question: button.innerText.trim() });
         }
       });
@@ -552,42 +582,17 @@
 
   // --- WhatsApp & Direct Click Tracking ---
   function initDirectClickTracking() {
-    // WhatsApp clicks
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
       link.addEventListener('click', () => {
         trackEvent('whatsapp_click', { link_url: link.href, link_text: link.innerText.trim() });
       });
     });
 
-    // Phone call clicks
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
       link.addEventListener('click', () => {
         trackEvent('phone_click', { phone_number: link.href, link_text: link.innerText.trim() });
       });
     });
-  }
-
-  // --- Scroll Reveal Animations ---
-  function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    if (!('IntersectionObserver' in window)) {
-      revealElements.forEach(el => el.classList.add('is-visible'));
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -30px 0px'
-    });
-
-    revealElements.forEach(el => observer.observe(el));
   }
 
   // --- Mobile Off-Canvas Navigation Drawer ---
@@ -598,6 +603,8 @@
     if (!backdrop) return;
 
     function openNav() {
+      backdrop.style.display = 'block';
+      void backdrop.offsetWidth;
       backdrop.classList.add('open');
       backdrop.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -607,6 +614,11 @@
       backdrop.classList.remove('open');
       backdrop.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!backdrop.classList.contains('open')) {
+          backdrop.style.display = 'none';
+        }
+      }, 350);
     }
 
     if (toggleBtn) {
@@ -625,19 +637,47 @@
     });
   }
 
+  // --- Active Nav Link on Scroll (Intersection Observer) ---
+  function initScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+    if (!sections.length || !navLinks.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      threshold: 0.35,
+      rootMargin: '-76px 0px -40% 0px'
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+
   // --- Initialization on DOM Ready ---
   document.addEventListener('DOMContentLoaded', () => {
     captureAndPersistUTMs();
     initScrollTracking();
-    initScrollReveal();
     initMobileNav();
     initModals();
     initApplicationForm();
     initAdmissionsForm();
+    initCurriculumTabs();
     initFAQ();
     initDirectClickTracking();
+    initScrollSpy();
 
-    trackEvent('page_view', { page_title: document.title });
+    trackEvent('page_view', { page_title: document.title, aesthetic: 'Aman Himalayan Sanctuary' });
   });
 
 })();

@@ -1,0 +1,2124 @@
+/* ==========================================================================
+   AKSHAR YOGA — 40-DAY BASIC RESIDENTIAL TTC (200 HOURS)
+   Theme: Hygge / Japandi Earth Wellness & Organic Sanctuary
+   Inspired by: Warm Oatmeal Canvas, Sage Olive Blocks, Chocolate Pill Buttons,
+   Delicate Sacred Geometry, Arched Faculty Cards, and Soft Rounded Containers
+   ========================================================================== */
+
+:root {
+  /* Canvas & Surfaces */
+  --hygge-bg: #F4EFEA;
+  --hygge-card: #FFFFFF;
+  --hygge-card-soft: #F9F6F1;
+  --hygge-card-sand: #EDE6DC;
+
+  /* Natural Earth Accents */
+  --hygge-sage: #8A9878;
+  --hygge-sage-hover: #788566;
+  --hygge-sage-dark: #323F2A;
+  --hygge-sage-light: #EFF3EB;
+  --hygge-sage-subtle: rgba(138, 152, 120, 0.14);
+
+  --hygge-chocolate: #6E5347;
+  --hygge-chocolate-hover: #5A4237;
+  --hygge-chocolate-light: #8E7366;
+  --hygge-terracotta: #A86A51;
+
+  --hygge-sand: #DFD5C6;
+  --hygge-sand-badge: #C8B8A2;
+  --hygge-gold-accent: #B89C68;
+
+  /* Typography Colors */
+  --hygge-espresso: #201D1A;
+  --hygge-charcoal: #36322E;
+  --hygge-body: #55504A;
+  --hygge-muted: #827A71;
+  --hygge-border: #E8E1D7;
+  --hygge-border-light: #F0ECE4;
+  --hygge-white: #FFFFFF;
+
+  /* Typography Stacks */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+
+  /* Soft Organic Radii */
+  --radius-pill: 50px;
+  --radius-card-sm: 16px;
+  --radius-card-md: 24px;
+  --radius-card-lg: 32px;
+  --radius-card-xl: 40px;
+  --radius-arch: 90px 90px 20px 20px;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(32, 29, 26, 0.03);
+  --shadow-card: 0 10px 32px rgba(32, 29, 26, 0.05);
+  --shadow-elevated: 0 20px 50px rgba(32, 29, 26, 0.08);
+
+  /* Layout */
+  --container-max: 1320px;
+  --header-height: 78px;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Safety */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--hygge-bg);
+  color: var(--hygge-body);
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Container & Canvas System */
+.page-canvas {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 480px) {
+  .page-canvas {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.container-narrow {
+  max-width: 860px;
+}
+
+/* Typography Helpers */
+.serif {
+  font-family: var(--font-serif);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+  margin-bottom: 12px;
+}
+
+.kicker-sage {
+  color: var(--hygge-sage-dark);
+}
+
+.section-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.22;
+  color: var(--hygge-espresso);
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  color: var(--hygge-muted);
+  max-width: 660px;
+  line-height: 1.7;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header-center .section-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons (Pill Theme) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: normal;
+}
+
+.btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-chocolate {
+  background-color: var(--hygge-chocolate);
+  color: var(--hygge-white);
+  border: 1px solid var(--hygge-chocolate);
+}
+
+.btn-chocolate:hover {
+  background-color: var(--hygge-chocolate-hover);
+  border-color: var(--hygge-chocolate-hover);
+  color: var(--hygge-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(110, 83, 71, 0.25);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--hygge-espresso);
+  border: 1px solid var(--hygge-espresso);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--hygge-espresso);
+  color: var(--hygge-white);
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--hygge-white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--hygge-white);
+  color: var(--hygge-espresso);
+  border-color: var(--hygge-white);
+}
+
+.btn-whatsapp {
+  background-color: #235A43;
+  color: #FFFFFF;
+  border: 1px solid #235A43;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1A4433;
+  color: #FFFFFF;
+  border-color: #1A4433;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT BAR & SITE HEADER
+   ========================================================================== */
+
+.top-bar {
+  background-color: var(--hygge-card-sand);
+  border-bottom: 1px solid var(--hygge-border);
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    padding: 6px 10px;
+  }
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(244, 239, 234, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hygge-border);
+  transition: var(--transition);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  gap: 20px;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-link:hover .brand-logo-img {
+  transform: rotate(6deg) scale(1.04);
+}
+
+.brand-title {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--hygge-espresso);
+  line-height: 1;
+}
+
+/* Pill Shaped Nav Menu in Header (Hygge Style) */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .main-nav {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--hygge-border);
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--hygge-charcoal);
+  padding: 6px 4px;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--hygge-chocolate);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.header-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--hygge-border);
+  background-color: var(--hygge-card);
+  color: var(--hygge-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.header-icon-circle:hover {
+  background-color: var(--hygge-chocolate);
+  color: var(--hygge-white);
+  border-color: var(--hygge-chocolate);
+  transform: translateY(-2px);
+}
+
+.header-icon-circle.whatsapp-circle {
+  color: #235A43;
+}
+
+.header-icon-circle.whatsapp-circle:hover {
+  background-color: #235A43;
+  color: #FFFFFF;
+  border-color: #235A43;
+}
+
+.header-mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  gap: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--hygge-border);
+  background-color: var(--hygge-card);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+@media (min-width: 992px) {
+  .header-mobile-toggle {
+    display: none;
+  }
+}
+
+.header-mobile-toggle span {
+  width: 16px;
+  height: 1.5px;
+  background-color: var(--hygge-espresso);
+  transition: var(--transition);
+}
+
+@media (max-width: 680px) {
+  .header-actions .btn-chocolate {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    gap: 8px;
+  }
+  .brand-logo-img {
+    width: 32px;
+    height: 32px;
+  }
+  .brand-title {
+    font-size: 1.15rem;
+  }
+  .header-icon-circle, .header-mobile-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Off-canvas Mobile Navigation Drawer */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background-color: rgba(20, 18, 16, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  display: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-backdrop.open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 82%;
+  max-width: 340px;
+  z-index: 1510;
+  background-color: var(--hygge-bg);
+  border-left: 1px solid var(--hygge-border);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+}
+
+.mobile-nav-backdrop.open .mobile-nav-drawer {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hygge-border);
+  margin-bottom: 24px;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mobile-nav-links a {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  display: block;
+}
+
+.mobile-nav-footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--hygge-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   HERO SECTION (Matches Reference Rounded Hero Card)
+   ========================================================================== */
+
+.hero-section-wrap {
+  padding: 24px 0 48px;
+}
+
+@media (max-width: 480px) {
+  .hero-section-wrap {
+    padding: 14px 0 32px;
+  }
+}
+
+.hero-card {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-lg);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (min-width: 992px) {
+  .hero-card {
+    grid-template-columns: 1.08fr 0.92fr;
+    align-items: center;
+    padding: 64px 56px;
+    min-height: 580px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-card {
+    padding: 28px 20px;
+    border-radius: var(--radius-card-md);
+    gap: 28px;
+  }
+}
+
+.hero-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--hygge-card-soft);
+  border: 1px solid var(--hygge-border);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-charcoal);
+  margin-bottom: 22px;
+}
+
+.hero-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2E7D32;
+  display: inline-block;
+  animation: pulseDot 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+}
+
+.hero-h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.16;
+  color: var(--hygge-espresso);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero-h1 .hero-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--hygge-chocolate);
+  display: block;
+}
+
+.hero-subtext {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.7;
+  color: var(--hygge-body);
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+@media (max-width: 680px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+.hero-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hygge-border-light);
+  width: 100%;
+}
+
+.hero-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+}
+
+.hero-tag-item svg {
+  color: var(--hygge-sage);
+}
+
+/* Hero Right: Organic Rounded Photo Card */
+.hero-visual-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 991px) {
+  .hero-visual-card {
+    min-height: 280px;
+  }
+}
+
+.hero-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 84% 20%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-visual-card:hover .hero-visual-img {
+  transform: scale(1.03);
+}
+
+.hero-floating-pill {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--hygge-border);
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero-floating-pill p {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  line-height: 1.35;
+}
+
+.hero-floating-pill .pill-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background-color: var(--hygge-sage-light);
+  color: var(--hygge-sage-dark);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .hero-floating-pill {
+    position: static;
+    margin-top: 14px;
+    border-radius: var(--radius-card-sm);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   PHILOSOPHY & SACRED MANDALA SECTION (Matches Reference Section 2)
+   ========================================================================== */
+
+.section-philosophy {
+  padding: 64px 0;
+}
+
+@media (max-width: 480px) {
+  .section-philosophy {
+    padding: 40px 0;
+  }
+}
+
+.philosophy-card {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-lg);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .philosophy-card {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: center;
+    padding: 64px 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophy-card {
+    padding: 28px 20px;
+    border-radius: var(--radius-card-md);
+  }
+}
+
+.philosophy-quote-h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--hygge-espresso);
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+
+.philosophy-quote-h2 .highlight-word {
+  color: var(--hygge-chocolate);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.philosophy-paragraphs {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--hygge-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 620px;
+}
+
+/* Delicate Overlapping Circles Mandala SVG */
+.philosophy-mandala-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mandala-svg {
+  width: 220px;
+  height: 220px;
+  color: var(--hygge-sand-badge);
+  opacity: 0.85;
+  transition: transform 0.8s ease;
+}
+
+.philosophy-card:hover .mandala-svg {
+  transform: rotate(20deg);
+}
+
+@media (max-width: 480px) {
+  .mandala-svg {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* ==========================================================================
+   SAGE GREEN ATMOSPHERIC SANCTUARY CARD (Matches Reference Section 3)
+   ========================================================================== */
+
+.section-sage-banner {
+  padding: 20px 0 60px;
+}
+
+.sage-atmosphere-card {
+  background-color: var(--hygge-sage);
+  border-radius: var(--radius-card-lg);
+  padding: 56px 44px;
+  color: var(--hygge-white);
+  box-shadow: 0 16px 44px rgba(138, 152, 120, 0.22);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .sage-atmosphere-card {
+    padding: 36px 20px;
+    border-radius: var(--radius-card-md);
+  }
+}
+
+.sage-atmosphere-card .sage-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--hygge-white);
+  max-width: 720px;
+  margin: 0 auto 44px;
+}
+
+.sage-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .sage-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+.sage-pillar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: var(--radius-card-sm);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.sage-pillar-item:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+.sage-icon-box {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hygge-white);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.sage-pillar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--hygge-white);
+}
+
+.sage-pillar-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================================
+   200-HOUR CURRICULUM GRID (Matches Reference Section 4)
+   ========================================================================== */
+
+.section-curriculum-hygge {
+  padding: 40px 0 60px;
+}
+
+.curriculum-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .curriculum-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .curriculum-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.curriculum-hygge-card {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.curriculum-hygge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--hygge-chocolate-light);
+}
+
+.curriculum-card-media {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background-color: var(--hygge-card-sand);
+}
+
+.curriculum-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.curriculum-hygge-card:hover .curriculum-card-img {
+  transform: scale(1.05);
+}
+
+.curriculum-card-hours-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--hygge-border);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-chocolate);
+}
+
+.curriculum-card-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.curriculum-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.curriculum-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  line-height: 1.35;
+}
+
+.curriculum-card-arrow {
+  color: var(--hygge-muted);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.curriculum-hygge-card:hover .curriculum-card-arrow {
+  transform: translateX(4px);
+  color: var(--hygge-chocolate);
+}
+
+.curriculum-card-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--hygge-muted);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.curriculum-card-trigger-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--hygge-chocolate);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.curriculum-card-trigger-btn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   WHY CHOOSE US (NUMBERED STEPS + PHOTO COLLAGE) (Matches Reference Section 5)
+   ========================================================================== */
+
+.section-why-choose-hygge {
+  padding: 50px 0 70px;
+}
+
+.why-choose-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .why-choose-layout {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+}
+
+.numbered-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.numbered-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  padding: 22px 24px;
+  border-radius: var(--radius-card-sm);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.numbered-step-item:hover {
+  border-color: var(--hygge-chocolate-light);
+  transform: translateX(4px);
+}
+
+.step-circle-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--hygge-sand-badge);
+  color: var(--hygge-white);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  margin-bottom: 6px;
+}
+
+.step-content-body p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--hygge-muted);
+}
+
+/* Asymmetric Photo Collage (Matches Reference Right Side) */
+.asymmetric-collage-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: repeat(2, 190px);
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .asymmetric-collage-grid {
+    grid-template-rows: repeat(2, 150px);
+  }
+}
+
+.collage-tile {
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-subtle);
+}
+
+.collage-tile-tall {
+  grid-row: span 2;
+}
+
+.collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.collage-tile:hover .collage-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   MID-PAGE CONVERSION BANNER (Matches Reference Section 6)
+   ========================================================================== */
+
+.section-mid-cta {
+  padding: 20px 0 60px;
+}
+
+.mid-cta-card {
+  background-color: var(--hygge-card-sand);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-lg);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .mid-cta-card {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 48px 52px;
+  }
+}
+
+.mid-cta-text h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--hygge-espresso);
+  max-width: 580px;
+}
+
+.mid-cta-text h3 .highlight-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--hygge-chocolate);
+}
+
+.mid-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   FACULTY & MASTERS (ARCHED PILL CARDS) (Matches Reference Section 7)
+   ========================================================================== */
+
+.section-faculty-hygge {
+  padding: 40px 0 60px;
+}
+
+.faculty-arched-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .faculty-arched-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .faculty-arched-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+  }
+}
+
+.faculty-arched-card {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.faculty-arched-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--hygge-chocolate-light);
+}
+
+.faculty-photo-wrap {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background-color: var(--hygge-card-sand);
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .faculty-photo-wrap {
+    height: 180px;
+  }
+}
+
+.faculty-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 14%;
+  transition: transform 0.5s ease;
+}
+
+.faculty-photo-wrap-akshar {
+  background: radial-gradient(circle at 50% 28%, #F7F3EC 0%, #E8DFD3 100%);
+}
+
+.faculty-akshar-img {
+  object-fit: cover;
+  object-position: center 6%;
+  transform: scale(1.15);
+  transform-origin: center 20%;
+}
+
+.faculty-arched-card:hover .faculty-photo-img {
+  transform: scale(1.05);
+}
+
+.faculty-arched-card:hover .faculty-akshar-img {
+  transform: scale(1.2);
+}
+
+.faculty-card-info {
+  padding: 16px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.faculty-name {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+  line-height: 1.3;
+}
+
+.faculty-role {
+  font-size: 0.75rem;
+  color: var(--hygge-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   EXPERIENCE TIERS & PRICING
+   ========================================================================== */
+
+.section-pricing-hygge {
+  padding: 50px 0 70px;
+}
+
+.pricing-hygge-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .pricing-hygge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.pricing-hygge-card {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-md);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+@media (max-width: 480px) {
+  .pricing-hygge-card {
+    padding: 30px 20px;
+  }
+}
+
+.pricing-hygge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.pricing-hygge-card.featured {
+  border: 2px solid var(--hygge-sage);
+  background-color: #FCFAF7;
+}
+
+.pricing-tier-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--hygge-sage);
+  color: var(--hygge-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(138, 152, 120, 0.3);
+  white-space: nowrap;
+}
+
+.pricing-tier-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.pricing-tier-tagline {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.pricing-tier-price-box {
+  text-align: center;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--hygge-border-light);
+}
+
+.pricing-tier-amount {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  line-height: 1;
+}
+
+.pricing-tier-currency {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+  margin-top: 6px;
+}
+
+.pricing-inclusions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.pricing-inclusions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--hygge-body);
+  line-height: 1.5;
+}
+
+.pricing-inclusions-list li svg {
+  color: var(--hygge-sage);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.pricing-exclusion-note {
+  font-size: 0.78rem;
+  color: var(--hygge-muted);
+  background-color: var(--hygge-card-soft);
+  border: 1px solid var(--hygge-border-light);
+  padding: 10px 14px;
+  border-radius: var(--radius-card-sm);
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   SANCTUARY LIFE COLLAGE & QUOTE (Matches Reference Section 8)
+   ========================================================================== */
+
+.section-life-sanctuary {
+  padding: 40px 0 60px;
+}
+
+.life-collage-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .life-collage-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.life-quote-tile {
+  background-color: var(--hygge-sage);
+  border-radius: var(--radius-card-md);
+  padding: 36px 30px;
+  color: var(--hygge-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-subtle);
+}
+
+.life-quote-tile p {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--hygge-white);
+}
+
+.life-quote-author {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 24px;
+}
+
+.life-photo-tile {
+  border-radius: var(--radius-card-md);
+  overflow: hidden;
+  height: 260px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.life-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.life-photo-tile:hover .life-photo-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   ACCESSIBLE FAQ ACCORDION (Clean Hygge Style)
+   ========================================================================== */
+
+.section-faq-hygge {
+  padding: 50px 0 70px;
+}
+
+.faq-accordion-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: var(--hygge-card);
+  border: 1px solid var(--hygge-border);
+  border-radius: var(--radius-card-sm);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item.active {
+  border-color: var(--hygge-chocolate-light);
+  box-shadow: var(--shadow-subtle);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--hygge-card-soft);
+  border: 1px solid var(--hygge-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hygge-espresso);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(45deg);
+  background-color: var(--hygge-chocolate);
+  color: var(--hygge-white);
+  border-color: var(--hygge-chocolate);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s ease;
+  padding: 0 24px;
+  color: var(--hygge-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 600px;
+  padding: 0 24px 22px;
+}
+
+/* ==========================================================================
+   TICKER / MARQUEE RIBBON (Matches Reference Bottom Ticker)
+   ========================================================================== */
+
+.ticker-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--hygge-espresso);
+  color: var(--hygge-white);
+  padding: 12px 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.ticker-item {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticker-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--hygge-gold-accent);
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   FOOTER (Clean & Minimalist)
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--hygge-card);
+  border-top: 1px solid var(--hygge-border);
+  padding: 56px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.footer-brand h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  color: var(--hygge-muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-col h5 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-espresso);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--hygge-muted);
+}
+
+.footer-links a:hover {
+  color: var(--hygge-chocolate);
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--hygge-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--hygge-muted);
+}
+
+@media (min-width: 680px) {
+  .footer-bottom {
+    flex-direction: row;
+  }
+}
+
+/* ==========================================================================
+   MODALS (Application Form, Talk to Admissions, Curriculum)
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(20, 18, 16, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-x: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-window {
+  background-color: var(--hygge-card);
+  border-radius: var(--radius-card-md);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 36px 32px;
+}
+
+.modal-backdrop.open .modal-window {
+  transform: translateY(0) scale(1);
+}
+
+.modal-window-wide {
+  max-width: 780px;
+}
+
+@media (max-width: 480px) {
+  .modal-window {
+    padding: 24px 18px;
+    border-radius: var(--radius-card-sm);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--hygge-border);
+  background-color: var(--hygge-card-soft);
+  color: var(--hygge-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--hygge-chocolate);
+  color: var(--hygge-white);
+  border-color: var(--hygge-chocolate);
+}
+
+.modal-header {
+  margin-bottom: 24px;
+}
+
+.modal-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+  margin-bottom: 6px;
+}
+
+.modal-header p {
+  font-size: 0.88rem;
+  color: var(--hygge-muted);
+}
+
+/* Wizard Indicators */
+.form-step-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--hygge-muted);
+}
+
+.step-indicator.active {
+  color: var(--hygge-chocolate);
+}
+
+.step-indicator.completed {
+  color: var(--hygge-sage-dark);
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--hygge-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.step-indicator.active .step-num {
+  background-color: var(--hygge-chocolate);
+  color: var(--hygge-white);
+  border-color: var(--hygge-chocolate);
+}
+
+.step-indicator.completed .step-num {
+  background-color: var(--hygge-sage);
+  color: var(--hygge-white);
+  border-color: var(--hygge-sage);
+}
+
+/* Inputs & Form Groups */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--hygge-espresso);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-card-sm);
+  border: 1px solid var(--hygge-border);
+  background-color: var(--hygge-card-soft);
+  color: var(--hygge-espresso);
+  font-size: 0.92rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--hygge-chocolate);
+  background-color: var(--hygge-white);
+  box-shadow: 0 0 0 3px rgba(110, 83, 71, 0.12);
+}
+
+/* Option Radios in Application Modal */
+.tier-options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.option-radio-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: var(--radius-card-sm);
+  border: 1.5px solid var(--hygge-border);
+  background-color: var(--hygge-white);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.option-radio-card:hover {
+  border-color: var(--hygge-chocolate-light);
+}
+
+.option-radio-card.selected {
+  border-color: var(--hygge-chocolate);
+  background-color: var(--hygge-card-soft);
+}
+
+.option-radio-card input[type="radio"] {
+  accent-color: var(--hygge-chocolate);
+}
+
+/* Curriculum Modal Modules */
+.curriculum-module-item {
+  padding: 20px;
+  border-radius: var(--radius-card-sm);
+  border: 1px solid var(--hygge-border);
+  background-color: var(--hygge-card-soft);
+  margin-bottom: 14px;
+}
+
+.curriculum-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.curriculum-module-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+}
+
+.curriculum-module-hours {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: var(--hygge-sand-badge);
+  color: var(--hygge-white);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.curriculum-module-desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--hygge-muted);
+  margin-bottom: 10px;
+}
+
+.curriculum-topics-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.topic-tag {
+  font-size: 0.72rem;
+  background-color: var(--hygge-white);
+  border: 1px solid var(--hygge-border);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  color: var(--hygge-charcoal);
+}
+
+/* Sticky Mobile Conversion Bar */
+.sticky-mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 990;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--hygge-border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.sticky-mobile-bar.visible {
+  transform: translateY(0);
+}
+
+@media (min-width: 769px) {
+  .sticky-mobile-bar {
+    display: none !important;
+  }
+}
+
+.sticky-bar-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-bar-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hygge-muted);
+}
+
+.sticky-bar-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--hygge-espresso);
+  line-height: 1.1;
+}
+
+.sticky-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-bar-whatsapp {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #235A43;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.06s; }
+.stagger-2 { transition-delay: 0.12s; }
+.stagger-3 { transition-delay: 0.18s; }
+.stagger-4 { transition-delay: 0.24s; }
+.stagger-5 { transition-delay: 0.30s; }
