@@ -126,7 +126,7 @@ button {
 
 input, select, textarea {
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px - strictly prevents iOS Safari auto-zoom on mobile */
 }
 
 /* --- Architectural Typography Helpers --- */
@@ -1770,9 +1770,9 @@ input, select, textarea {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-xs);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-card);
   background-color: var(--surface);
   display: flex;
@@ -1789,9 +1789,10 @@ input, select, textarea {
 }
 
 .modal-header {
-  padding: 2.25rem 2.25rem 1.25rem;
+  padding: 2.25rem 3.5rem 1.25rem 2.25rem;
   border-bottom: 1px solid var(--border-card);
   background-color: var(--surface);
+  position: relative;
 }
 
 .modal-kicker {
@@ -1869,7 +1870,7 @@ input, select, textarea {
   border-radius: var(--radius-sm);
   background-color: var(--surface);
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px - strictly prevents iOS Safari auto-zoom on mobile */
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -2086,6 +2087,11 @@ input, select, textarea {
     padding-bottom: 3.5rem;
   }
 
+  .section-headline {
+    font-size: clamp(1.75rem, 6.5vw, 2.35rem);
+    word-break: break-word;
+  }
+
   .hero-content-col {
     padding: 1.75rem 1.15rem;
   }
@@ -2115,10 +2121,11 @@ input, select, textarea {
 
   .floating-mobile-bar {
     display: block;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
 
   body {
-    padding-bottom: 74px;
+    padding-bottom: max(74px, calc(64px + env(safe-area-inset-bottom)));
   }
 
   .pathway-grid {
@@ -2143,6 +2150,11 @@ input, select, textarea {
     padding: 0.75rem 1rem;
   }
 
+  .curriculum-tab-btn {
+    padding: 0.95rem 1.15rem;
+    font-size: 0.82rem;
+  }
+
   .curriculum-tab-panels {
     padding: 1.5rem 1.15rem;
   }
@@ -2156,12 +2168,22 @@ input, select, textarea {
     gap: 0.65rem;
   }
 
+  .sanctuary-image-wrap {
+    height: 240px;
+  }
+
   .sanctuary-body {
     padding: 1.5rem 1.15rem;
   }
 
   .tier-card {
     padding: 1.75rem 1.15rem;
+  }
+
+  .tier-badge-recommended {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.95rem;
+    white-space: nowrap;
   }
 
   .tiers-advisory-strip {
@@ -2190,15 +2212,64 @@ input, select, textarea {
   }
 
   .modal-dialog {
-    max-height: 95vh;
+    width: calc(100% - 1.5rem);
+    max-height: 90vh;
+    margin: 1rem auto;
   }
 
   .modal-header {
-    padding: 1.5rem 1.15rem 1rem;
+    padding: 1.5rem 3.5rem 1rem 1.25rem;
+  }
+
+  .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
   }
 
   .modal-body {
     padding: 1.15rem;
+  }
+
+  .option-radio-card {
+    padding: 0.85rem 0.95rem;
+    align-items: flex-start;
+  }
+
+  .mobile-drawer {
+    width: 88%;
+    max-width: 360px;
+    padding-top: max(2rem, env(safe-area-inset-top));
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .tier-price {
+    font-size: 1.85rem;
+  }
+
+  .option-radio-card {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .option-card-price {
+    margin-left: 28px;
+  }
+
+  .modal-nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .modal-nav-actions .btn {
+    width: 100%;
   }
 }
 
@@ -2206,7 +2277,13 @@ input, select, textarea {
   .brand-sub {
     display: none;
   }
+
   .brand-name {
     font-size: 0.95rem;
+  }
+
+  .site-header .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
